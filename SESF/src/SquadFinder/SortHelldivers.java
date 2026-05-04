@@ -26,10 +26,13 @@ public class SortHelldivers {
 		LinkedList<Player> sortedPlayers = new LinkedList<>();
 		int qSize = q.size();
 		Player[] arr = new Player[qSize];
+
+		// move players into an array to be sorted
 		for (int i = 0; i < qSize; i++) {
 			arr[i] = (Player) q.poll();
 		}
 		int n = arr.length;
+		// insertion sort algorithm by difficulty
 		for (int i = 1; i < n; ++i) {
 			Player currentPlayer = (Player) arr[i];
 			int key = currentPlayer.getStyle().getDiff();
