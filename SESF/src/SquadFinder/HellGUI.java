@@ -120,7 +120,7 @@ public class HellGUI implements ActionListener {
 		frame.setTitle("SUPER EARTH SQUAD FINDER");
 		frame.pack();
 		frame.setVisible(true);
-		frame.setSize(400, 300);
+		frame.setSize(550, 500);
 
 	}
 
