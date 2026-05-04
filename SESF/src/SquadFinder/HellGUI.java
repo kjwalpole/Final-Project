@@ -17,6 +17,7 @@ package SquadFinder;
 */
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -101,7 +102,7 @@ public class HellGUI implements ActionListener {
 		button.addActionListener(this); // run search program when button is pressed
 
 		searchMsg = new JLabel("SEARCHING FOR SQUAD..."); // Message displayed after clicking button
-		searchMsg.setBounds(35, 80, 265, 25);
+		searchMsg.setBounds(10, 80, 800, 25);
 		panel.add(searchMsg);
 		searchMsg.setVisible(false);
 
@@ -138,12 +139,11 @@ public class HellGUI implements ActionListener {
 
 		searchMsg.setVisible(true);
 
-		String user = uNameField.getText();
-		int lvl = Integer.parseInt(lvlField.getText());
-		int diff = Integer.parseInt(String.valueOf(diffBox.getSelectedItem().toString().charAt(0)));
-		String tude = tudeBox.getSelectedItem().toString();
-
 		try {
+			String user = uNameField.getText();
+			int lvl = Integer.parseInt(lvlField.getText());
+			int diff = Integer.parseInt(String.valueOf(diffBox.getSelectedItem().toString().charAt(0)));
+			String tude = tudeBox.getSelectedItem().toString();
 			String squad = hp.hellProgram(user, lvl, diff, tude);
 			searchMsg.setVisible(false);
 
@@ -151,8 +151,11 @@ public class HellGUI implements ActionListener {
 			squadMsg.setText(squad);
 			squadMsg.setVisible(true);
 		} catch (OutOfRangeException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
+
+		} catch (NumberFormatException e2) {
+			searchMsg.setText("ERROR: LEVEL MUST BE ENTERED AS A NUMBER, PLEASE CLOSE WINDOW AND TRY AGAIN");
+			searchMsg.setForeground(Color.red);
 		}
 
 	}
