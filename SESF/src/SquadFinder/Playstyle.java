@@ -29,7 +29,7 @@ public class Playstyle {
 	// Constructors
 	// Default
 	public Playstyle() {
-		this.diff = (Integer) null;
+		this.diff = 0;
 		this.diffTitle = null;
 		this.attitude = null;
 	}
